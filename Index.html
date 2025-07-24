@@ -2,16 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HandCount Decoder</title>
+  <title>VisionForge – HandCount Decoder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
-    video, canvas { transform: scaleX(-1); }
-    body { font-family: sans-serif; background: #101010; color: white; text-align: center; }
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      color: #00eaff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin: 20px 0 10px;
+      font-size: 2em;
+      text-shadow: 0 0 5px #00eaffaa;
+    }
+
+    video {
+      width: 90%;
+      max-width: 640px;
+      height: auto;
+      border: 2px solid #00eaff33;
+      border-radius: 8px;
+      margin: 10px 0;
+      box-shadow: 0 0 20px #00eaff22;
+      transform: scaleX(-1);
+    }
+
+    #output {
+      margin-top: 10px;
+      font-size: 1.2em;
+      background-color: #111;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: 1px solid #00eaff44;
+      box-shadow: 0 0 10px #00eaff22;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8em;
+      color: #666;
+    }
   </style>
 </head>
 <body>
-  <h1>🖐️ HandCount Decoder</h1>
-  <video id="video" autoplay playsinline width="640" height="480"></video>
-  <div id="output">Detectando...</div>
+  <h1>🖐️ VisionForge</h1>
+  <video id="video" autoplay playsinline muted></video>
+  <div id="output">Carregando...</div>
+  <div class="footer">Powered by MediaPipe & Azure Vision Labs</div>
+
+  <!-- Scripts MediaPipe -->
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.min.js"></script>
